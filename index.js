@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 /*ROTAS DO SISTEMA*/
 
-//Rota inicio
+//Rota vai ser a tela de login
 app.get('/', function(req, res){
     res.render('admin/index');
 })
