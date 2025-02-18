@@ -1,25 +1,20 @@
-<div>
-    <form method="'post" action="../projeto/cadastrar">
-        <fieldset>
-            <legend>CADASTRO DE PROJETOS</legend>
+<div class="col-md-5 mx-auto shadow p-3">
+<form method="post" action="/projeto/salvar">
+    <fieldset>
 
-            <div>
-                <label for="">NOME</label>
-                <input type="text" name="nome" id="disableTextInput" class="form-control" required>
-            </div>
-             
-             <div class="row">
-                    <div class="col mb-3">
-                            <label for="disableTextInput" class="form-label">DESCRIÇÃO</label>
-                            <input type="text" id="disableTextInput" name="descricao" class="form-label" required>
-                    </div>
-                    <div class="col mb-3">
-                        <label for="disableTextInput" class="form-label">PRAZO</label>
-                    </div>
-             </div>
+        <legend>Cadastro de projetos</legend>
 
-             <button type="submit" class="btn btn-success">SALVAR</button>
+            <label>Nome</label>
+            <input name="nome" type="text" class="form-control">
 
-        </fieldset>
-    </form>
+            <label>Descrição</label>
+            <input name="descricao" type="text" class="form-control">
+
+            <label>Prazo</label>
+            <input name="prazo" type="number" class="form-control">
+            
+            <button type="submit" class="btn btn-success mt-3">Salvar</button>
+
+    </fieldset>
+</form>
 </div>

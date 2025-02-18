@@ -1,6 +1,6 @@
-import banco from '../config/banco.js';
+import banco from '../config/banco.js'
 
-const Projeto = banco.sequelize.define('projetos',{
+const Projeto = banco.sequelize.define('projetos', {
     id:{
         type: banco.Sequelize.INTEGER,
         primaryKey: true,
@@ -14,8 +14,10 @@ const Projeto = banco.sequelize.define('projetos',{
     },
     prazo:{
         type: banco.Sequelize.INTEGER,
+    },
+    status:{
+        type: banco.Sequelize.INTEGER,
     }
-    
-})  
-
+})
+Projeto.sync()
 export default Projeto

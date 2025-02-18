@@ -1,13 +1,9 @@
 import express from 'express'
 const router = express.Router()
-import ProjetoController from "../controller/ProjetoController.js"
+import ProjetoController from '../controllers/ProjetoController.js'
 
 router.get('/', ProjetoController.index)
-
-router.get('/cadastrar', (req, res) => {
-    res.render('projeto/cadastrar')
-})
-
-router.post('/cadastrar', ProjetoController.cadastrar)
+router.get('/cadastrar', ProjetoController.cadastrar)
+router.post('/salvar', ProjetoController.salvar)
 
 export default router
