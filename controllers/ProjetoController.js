@@ -1,30 +1,64 @@
-import Projeto from '../models/Projeto.js';
+import Projeto from "../models/Projeto.js";
+import Tarefa from "../models/Tarefa.js";
 
 class ProjetoController {
 
-    index = async function(req, res){
-        const projetos = await Projeto.findAll()
-        res.render('projeto/index', {projetos: projetos})
+    // Listar projetos e suas tarefas
+    index = async function(req, res) {
+        const projetos = await Projeto.findAll({
+            include: [{ model: Tarefa }] // Inclui as tarefas associadas a cada projeto
+        });
+        res.render("projeto/index", { projetos });
     }
 
-    cadastrar = function (req, res) {
-        res.render('projeto/cadastrar')
+    // Formulário para criar um projeto
+    cadastrar = function(req, res) {
+        res.render("projeto/cadastrar");
     }
 
-
-    salvar = function (req, res) {
-        var projeto = {
+    // Salvar um novo projeto
+    salvar = function(req, res) {
+        Projeto.create({
             nome: req.body.nome,
             descricao: req.body.descricao,
             prazo: req.body.prazo,
             status: 1
-        }
-
-        Projeto.create(projeto).then(function (){
-            res.redirect('/projeto')
-        })
+        }).then(() => res.redirect("/projeto"));
     }
 
-}//Fim da Classe
+    // Formulário para editar um projeto
+    editar = async function(req, res) {
+        const projeto = await Projeto.findByPk(req.params.id);
+        res.render("projeto/editar", { projeto });
+    }
 
-export default new ProjetoController()
+    // Atualizar projeto
+    atualizar = async function(req, res) {
+        await Projeto.update(
+            {
+                nome: req.body.nome,
+                descricao: req.body.descricao,
+                prazo: req.body.prazo
+            },
+            { where: { id: req.params.id } }
+        );
+        res.redirect("/projeto");
+    }
+
+    // Excluir projeto
+    excluir = async function(req, res) {
+        await Projeto.destroy({ where: { id: req.params.id } });
+        res.redirect("/projeto");
+    }
+
+    // Adicionar uma tarefa a um projeto
+    adicionarTarefa = async function(req, res) {
+        await Tarefa.create({
+            descricao: req.body.descricao,
+            projetoId: req.params.projetoId
+        });
+        res.redirect("/projeto");
+    }
+}
+
+export default new ProjetoController();

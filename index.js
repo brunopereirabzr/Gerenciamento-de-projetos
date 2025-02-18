@@ -36,6 +36,15 @@ app.get('/', function(req, res){
 import projeto from './routes/projeto.js';
 app.use('/projeto', projeto)
 
+import sequelize from "./config/banco.js"; // Importa a configuração do banco
+import "./models/Projeto.js";
+import "./models/Tarefa.js";
+
+sequelize.sync({ alter: true }).then(() => {
+    console.log("Banco de dados sincronizado!");
+});
+
+
 app.listen(porta, function(){
     console.log('Servidor rodando em http://localhost:' + porta);
 });

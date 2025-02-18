@@ -1,0 +1,14 @@
+<h2>Editar Projeto</h2>
+
+<form action="/projeto/atualizar/{{projeto.id}}" method="POST">
+    <label>Nome:</label>
+    <input type="text" name="nome" value="{{projeto.nome}}" required>
+    
+    <label>Descrição:</label>
+    <input type="text" name="descricao" value="{{projeto.descricao}}" required>
+
+    <label>Prazo:</label>
+    <input type="int" name="prazo" value="{{projeto.prazo}}" required>
+
+    <button type="submit">Salvar</button>
+</form>
