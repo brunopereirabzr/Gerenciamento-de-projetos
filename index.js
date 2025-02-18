@@ -39,6 +39,7 @@ app.use('/projeto', projeto)
 import sequelize from "./config/banco.js"; // Importa a configuração do banco
 import "./models/Projeto.js";
 import "./models/Tarefa.js";
+import "./models/Comentario.js";
 
 sequelize.sync({ alter: true }).then(() => {
     console.log("Banco de dados sincronizado!");

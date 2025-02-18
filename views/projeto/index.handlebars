@@ -19,6 +19,7 @@
     </nav>
 
     <table class="table table-striped">
+        
         <tr>
             <th>ID</th>
             <th>Nome</th>
@@ -27,7 +28,9 @@
             <th>Ações</th>
         </tr>
         
+
         {{#each projetos}}
+
             <tr>
                 <td>{{id}}</td>
                 <td>{{nome}}</td>
@@ -38,6 +41,7 @@
                     <a href="/projeto/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a>
                 </td>
             </tr>
+
             <tr>
                 <td colspan="5">
                     <h5>Tarefas</h5>
@@ -52,6 +56,24 @@
                     </form>
                 </td>
             </tr>
+
+            <tr>
+
+                <td colspan="5">
+                <h5>Comentarios</h5>
+                <ul>
+                    {{#each comentarios}}
+                        <li>{{descricao}}</li>
+                    {{/each}}
+                </ul>
+                <form action="/projeto/comentario/adicionar/{{id}}" method="POST">
+                    <input type="text" name="descricao" placeholder="Novo comentario" required>
+                    <button type="submit" class="btn btn-sm btn-success">Adicionar comentario</button>
+                </form>
+            </td>
+
+            </tr>
+            
         {{/each}}
     </table>
 </div>

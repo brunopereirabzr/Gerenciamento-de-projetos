@@ -1,5 +1,6 @@
 import Projeto from "../models/Projeto.js";
 import Tarefa from "../models/Tarefa.js";
+import Comentario from "../models/Comentario.js";
 
 class ProjetoController {
 
@@ -54,6 +55,15 @@ class ProjetoController {
     // Adicionar uma tarefa a um projeto
     adicionarTarefa = async function(req, res) {
         await Tarefa.create({
+            descricao: req.body.descricao,
+            projetoId: req.params.projetoId
+        });
+        res.redirect("/projeto");
+    }
+
+    // Adicionar uma tarefa a um projeto
+    adicionarComentario = async function(req, res) {
+        await Comentario.create({
             descricao: req.body.descricao,
             projetoId: req.params.projetoId
         });

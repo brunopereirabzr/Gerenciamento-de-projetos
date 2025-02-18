@@ -22,7 +22,7 @@ const Comentario = sequelize.define("Comentario", {
         onDelete: "CASCADE"
     }
 }, {
-    tableName: "comentario",
+    tableName: "comentarios",
     timestamps: true
 });
 

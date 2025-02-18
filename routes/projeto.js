@@ -13,4 +13,6 @@ router.get("/excluir/:id", ProjetoController.excluir);
 
 router.post("/tarefa/adicionar/:projetoId", ProjetoController.adicionarTarefa);
 
+router.post("/comentario/adicionar/:projetoId", ProjetoController.adicionarComentario);
+
 export default router;
