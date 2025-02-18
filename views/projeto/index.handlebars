@@ -27,7 +27,6 @@
             <th>Prazo</th>
             <th>Ações</th>
         </tr>
-        
 
         {{#each projetos}}
 
@@ -60,17 +59,20 @@
             <tr>
 
                 <td colspan="5">
-                <h5>Comentarios</h5>
-                <ul>
-                    {{#each comentarios}}
-                        <li>{{descricao}}</li>
-                    {{/each}}
-                </ul>
-                <form action="/projeto/comentario/adicionar/{{id}}" method="POST">
-                    <input type="text" name="descricao" placeholder="Novo comentario" required>
-                    <button type="submit" class="btn btn-sm btn-success">Adicionar comentario</button>
-                </form>
-            </td>
+                    <h5>Comentarios</h5>
+                    
+                    <ul>
+                        {{#each Comentarios}}
+                            <li>{{descricao}}</li>
+                        {{/each}}
+                    </ul>
+                    
+                    <form action="/projeto/comentario/adicionar/{{id}}" method="POST">
+                        <input type="text" name="descricao" placeholder="Novo comentario" required>
+                        <button type="submit" class="btn btn-sm btn-success">Adicionar comentario</button>
+                    </form>
+
+                </td>
 
             </tr>
             

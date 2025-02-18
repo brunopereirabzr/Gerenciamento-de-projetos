@@ -7,7 +7,7 @@ class ProjetoController {
     // Listar projetos e suas tarefas
     index = async function(req, res) {
         const projetos = await Projeto.findAll({
-            include: [{ model: Tarefa }] // Inclui as tarefas associadas a cada projeto
+            include: [{ model: Tarefa }, { model: Comentario }] // Inclui as tarefas associadas a cada projeto
         });
         res.render("projeto/index", { projetos });
     }
