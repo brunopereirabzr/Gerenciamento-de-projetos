@@ -1,6 +1,6 @@
 import express from 'express'
-const router = express.Router()
 import ProjetoController from '../controllers/ProjetoController.js'
+const router = express.Router()
 
 router.get('/', ProjetoController.index)
 router.get('/cadastrar', ProjetoController.cadastrar)

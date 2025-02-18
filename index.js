@@ -33,8 +33,8 @@ app.get('/', function(req, res){
     res.render('admin/index');
 })
 
-import produto from './routes/projeto.js';
-app.use('/projeto', produto)
+import projeto from './routes/projeto.js';
+app.use('/projeto', projeto)
 
 app.listen(porta, function(){
     console.log('Servidor rodando em http://localhost:' + porta);
