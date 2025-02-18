@@ -26,7 +26,7 @@ const Comentario = sequelize.define("Comentario", {
     timestamps: true
 });
 
-// Relacionamento entre Projetos e Tarefas
+// Relacionamento entre Projetos e comentario
 Projeto.hasMany(Comentario, { foreignKey: "projetoId" });
 Comentario.belongsTo(Projeto, { foreignKey: "projetoId" });
 
