@@ -20,6 +20,7 @@ class ComentarioController{
         );
         res.redirect("/projeto");
     }
+
 }
 
 export default new ComentarioController();
