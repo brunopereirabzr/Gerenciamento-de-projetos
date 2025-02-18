@@ -63,7 +63,10 @@
                     
                     <ul>
                         {{#each Comentarios}}
-                            <li>{{descricao}} <a href="/comentario/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a></li>
+                            <li>{{descricao}} 
+                                <a href="/comentario/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a>
+                                <a href="/comentario/editar/{{id}}" class="btn btn-sm btn-warning">Editar</a>
+                            </li>
                             
                         {{/each}}
                     </ul>

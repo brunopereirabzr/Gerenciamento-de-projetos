@@ -1,0 +1,9 @@
+<h2>Editar comentario</h2>
+
+<form action="/comentario/atualizar/{{comentario.id}}" method="POST">
+    
+    <label>Descrição:</label>
+    <input type="text" name="descricao" value="{{comentario.descricao}}" required>
+
+    <button type="submit">Salvar</button>
+</form>
