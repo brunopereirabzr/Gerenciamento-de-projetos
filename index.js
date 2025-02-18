@@ -36,6 +36,9 @@ app.get('/', function(req, res){
 import projeto from './routes/projeto.js';
 app.use('/projeto', projeto)
 
+import comentario from './routes/comentario.js';
+app.use('/comentario', comentario)
+
 import sequelize from "./config/banco.js"; // Importa a configuração do banco
 import "./models/Projeto.js";
 import "./models/Tarefa.js";

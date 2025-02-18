@@ -63,7 +63,8 @@
                     
                     <ul>
                         {{#each Comentarios}}
-                            <li>{{descricao}}</li>
+                            <li>{{descricao}} <a href="/comentario/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a></li>
+                            
                         {{/each}}
                     </ul>
                     
@@ -71,7 +72,6 @@
                         <input type="text" name="descricao" placeholder="Novo comentario" required>
                         <button type="submit" class="btn btn-sm btn-success">Adicionar comentario</button>
                     </form>
-
                 </td>
 
             </tr>
