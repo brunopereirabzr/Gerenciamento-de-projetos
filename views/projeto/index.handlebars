@@ -1,1 +1,37 @@
-<h1>Deu certo!</h1>
+<div class="container-sm">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <h3 class="navbar-brand">Projetos</h3>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-primary mx-2" href="/projeto/cadastro"><i class="fa-solid fa-plus"></i>Novo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-secondary" href="/" ><i class="fa-solid fa-angle-left"></i> Voltar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table table-striped">
+        <tr>
+            <th class="col-1">ID</th>
+            <th class="col-5">NOME</th>
+            <th class="col-2">DESCRIÇÃO</th>
+            <th class="col-2">PRAZO</th>
+
+        </tr>
+        
+        {{#each projetos}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nome}}</td>
+                <td>{{descricao}}</td>
+                <td>{{prazo}}</td>
+            </tr>
+        {{/each}}
+
+    </table>
+
+</div>

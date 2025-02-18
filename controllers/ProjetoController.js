@@ -3,7 +3,7 @@ import Projeto from '../models/Projeto.js';
 class ProjetoController {
 
     index = async function(req, res){
-        const produtos = await Projeto.findAll()
+        const projetos = await Projeto.findAll()
         res.render('projeto/index', {projetos: projetos})
     }
 
