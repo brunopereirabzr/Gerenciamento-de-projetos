@@ -37,13 +37,14 @@ class ArquivoController {
         }
     }
 
-    // Formulário para editar um arquivo
+
     async editar(req, res) {
-        const arquivo = await Arquivo.findByPk(req.params.id);
-        res.render("arquivo/editar", { arquivo });
+        const projetos = await Projeto.findAll(); 
+
+        const arquivo = await Arquivo.findByPk(req.params.id)
+        res.render("arquivo/editar", { arquivo }, {projetos});
     }
 
-    // Atualizar um arquivo
     async atualizar(req, res) {
         const { nome, caminho } = req.body;
         await Arquivo.update(
@@ -56,7 +57,7 @@ class ArquivoController {
     // Excluir um arquivo
     async excluir(req, res) {
         await Arquivo.destroy({ where: { id: req.params.id } });
-        res.redirect("/arquivos");
+        res.redirect("/arquivo");
     }
 }
 
