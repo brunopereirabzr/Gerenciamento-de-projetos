@@ -1,12 +1,17 @@
-<h2>Login</h2>
-<form action="/usuario/logar" method="POST">
-    <label for="email">E-mail:</label>
-    <input type="email" name="email" required>
-    
-    <label for="senha">Senha:</label>
-    <input type="password" name="senha" required>
-    
-    <button type="submit">Entrar</button>
+<h2 class="mb-4 text-center">Login</h2>
+
+<form action="/usuario/logar" method="POST" class="w-50 mx-auto">
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail:</label>
+        <input type="email" class="form-control" name="email" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="senha" class="form-label">Senha:</label>
+        <input type="password" class="form-control" name="senha" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Entrar</button>
 </form>
 
-<p>Não tem uma conta? <a href="/usuario/registro">Registre-se aqui</a></p>
+<p class="mt-3 text-center">Não tem uma conta? <a href="/usuario/registro">Registre-se aqui</a></p>

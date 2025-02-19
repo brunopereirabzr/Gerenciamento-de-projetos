@@ -85,7 +85,6 @@ import projeto from './routes/projeto.js';
 app.use('/projeto', projeto)
 
 
-
 import comentario from './routes/comentario.js';
 app.use('/comentario', comentario)
 

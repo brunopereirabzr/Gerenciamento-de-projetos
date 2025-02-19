@@ -5,47 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Ajustes para garantir que o rodapé fique fixo na parte inferior */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .content {
+            min-height: 100%;
+            padding-bottom: 60px; /* Espaço para o rodapé fixo */
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar bg-success">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
-            <span class="navbar-brand text-white mb-0 h1">
-                <a href="/" class="text-decoration-none text-white">IFMA Gestão de projetos</a>
-            </span>
-            <div class="dropdown">
-                <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-user"></i>
-                    Usuário
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                        <a href="#" class="dropdown-item">
-                            <i class="fa-regular fa-id-card">Meus dados</i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="dropdown-item">
-                            <i class="fa-solid fa-key">Alterar Senha</i>
-                            
-                        </a>
-                    </li>
-                    <div class="dropdown-divider"></div>
-                    <li>
-                        <a href="#" class="dropdown-item">
-                            <i class="fa-solid fa-right-from-bracket">Sair</i>
-                            
-                        </a>
+            <a href="/" class="navbar-brand text-white">IFMA Gestão de Projetos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i> Usuário
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a href="#" class="dropdown-item"><i class="fa-regular fa-id-card"></i> Meus dados</a></li>
+                                <li><a href="#" class="dropdown-item"><i class="fa-solid fa-key"></i> Alterar Senha</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a href="#" class="dropdown-item"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
 
-    {{{body}}}
-    
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <main class="container my-4">
+            {{{body}}}
+        </main>
+    </div>
+
+    <!-- Rodapé Estilizado -->
+    <footer class="bg-dark text-white text-center py-1 mt-4" style="background: linear-gradient(135deg, #1a472a, #4b9f4f);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <h5 class="mb-1">IFMA Gestão de Projetos</h5>
+                    <p><i class="fa-solid fa-building"></i> Desenvolvido pelo Instituto Federal do Maranhão</p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="mb-1">Contato</h5>
+                    <p><i class="fa-solid fa-envelope"></i> contato@ifma.edu.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (98) 99999-9999</p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="mb-1">Redes Sociais</h5>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                    <a href="#" class="text-white"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+       
+    </footer>
 
     <script src="/js/bootstrap.bundle.js"></script>
 </body>
