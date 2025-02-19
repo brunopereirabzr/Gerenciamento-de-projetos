@@ -92,13 +92,11 @@ app.use('/comentario', comentario)
 import usuario from './routes/usuario.js';
 app.use('/usuario', usuario);
 
-<<<<<<< HEAD
 import sequelize from "./config/banco.js"; // Importa a configuração do banco
-=======
+
 import arquivo from './routes/arquivo.js';
 app.use('/arquivo', arquivo);
 
->>>>>>> e7cb6dbd00ca8c3cc99adfa71c36cad6aafd18ac
 sequelize.sync({ alter: true }).then(() => {
     console.log("Banco de dados sincronizado!");
 });

@@ -41,7 +41,7 @@ router.post('/registro', async (req, res) => {
         // Criar o usuário
         await Usuario.create({ email, senha: senhaHash });
 
-        res.redirect('/'); // Redireciona para a tela de login
+        res.redirect('admin/login'); // Redireciona para a tela de login
     } catch (error) {
         console.error(error);
         res.render('admin/registro', { erro: 'Erro ao registrar. Tente novamente!' });
