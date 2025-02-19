@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 
 const app = express();
-const porta = 7000;
+const porta = 6000;
 
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
