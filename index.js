@@ -106,7 +106,7 @@ import sequelize from "./config/banco.js"; // Importa a configuração do banco
 import arquivo from './routes/arquivo.js';
 app.use('/arquivo', arquivo);
 
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     console.log("Banco de dados sincronizado!");
 });
 
