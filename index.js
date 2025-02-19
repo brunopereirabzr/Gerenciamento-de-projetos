@@ -75,15 +75,25 @@ app.get('/admin', (req, res) => {
     res.render('admin/index');
 });
 
+app.get('/admin/index', (req, res) => {
+    res.render('admin/index');  // Substitua 'admin/index' pelo nome correto da sua view
+});
+
+
 // Logout
 app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect('/');
+    // Destruir a sessão do usuário
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send("Erro ao tentar fazer logout.");
+        }
+        // Redireciona para a página de login após o logout
+        res.redirect('/');
+    });
 });
 
 import projeto from './routes/projeto.js';
 app.use('/projeto', projeto)
-
 
 import comentario from './routes/comentario.js';
 app.use('/comentario', comentario)
@@ -96,7 +106,7 @@ import sequelize from "./config/banco.js"; // Importa a configuração do banco
 import arquivo from './routes/arquivo.js';
 app.use('/arquivo', arquivo);
 
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     console.log("Banco de dados sincronizado!");
 });
 
