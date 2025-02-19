@@ -41,47 +41,49 @@
                 </td>
             </tr>
 
-            <tr>
-                <td colspan="5">
-                    <h5>Tarefas</h5>
-                    <ul>
+
+            <table class="table">
+                <tr>
+                    <th>Tarefas</th>
+                    <th>Comentarios</th>
+                    <th>Arquivos</th>
+                </tr>
+
+                <tr>
+
+                   <td><!-- TAREFAS -->
+                    <ol>
                         {{#each Tarefas}}
-                            <li>{{descricao}}</li>
+                            <li type="">{{descricao}}</li>
                         {{/each}}
-                    </ul>
+                    </ol>
                     <form action="/projeto/tarefa/adicionar/{{id}}" method="POST">
                         <input type="text" name="descricao" placeholder="Nova tarefa" required>
                         <button type="submit" class="btn btn-sm btn-success">Adicionar Tarefa</button>
                     </form>
-                </td>
-            </tr>
 
-            <tr>
+                   </td>
 
-                <td colspan="5">
-                    <h5>Comentarios 
-                        {{#each Comentarios}}
-                            do projeto: <span>{{projetoId}}</span>
-                        {{/each}}
-                    </h5>
-                    
-                    <ul>
-                        {{#each Comentarios}}
-                            <li>{{descricao}} 
-                                <a href="/comentario/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a>
-                                <a href="/comentario/editar/{{id}}" class="btn btn-sm btn-warning">Editar</a>
-                            </li>
-                            
-                        {{/each}}
-                    </ul>
-                    
-                    <form action="/projeto/comentario/adicionar/{{id}}" method="POST">
-                        <input type="text" name="descricao" placeholder="Novo comentario" required>
-                        <button type="submit" class="btn btn-sm btn-success">Adicionar comentario</button>
-                    </form>
-                </td>
-
-            </tr>
+                   <td> <!-- COMENTARIOS -->
+                        <ul>
+                            {{#each Comentarios}}
+                                <li>{{descricao}} 
+                                    <a href="/comentario/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a>
+                                    <a href="/comentario/editar/{{id}}" class="btn btn-sm btn-warning">Editar</a>
+                                </li>
+                                
+                            {{/each}}
+                        </ul>
+                        
+                        <form action="/projeto/comentario/adicionar/{{id}}" method="POST">
+                            <input type="text" name="descricao" placeholder="Novo comentario" required>
+                            <button type="submit" class="btn btn-sm btn-success">Adicionar comentario</button>
+                        </form>
+                   </td>
+                   
+                   <td></td> 
+                </tr>
+            </table>
             
         {{/each}}
     </table>
