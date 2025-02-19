@@ -25,6 +25,7 @@
             <th>Nome</th>
             <th>Caminho</th>
             <th>Projeto</th>
+            <th>Ações</th>
         </tr>
 
         {{#each arquivos}}
@@ -34,7 +35,10 @@
                 <td>{{nome}}</td>
                 <td>{{caminho}}</td>
                 <td>{{projetoId}}</td>
-                
+                <td>
+                    <a href="/arquivo/excluir/{{id}}" class="btn btn-sm btn-danger">Excluir</a>
+                    <a href="/arquivo/editar/{{id}}" class="btn btn-sm btn-success">Editar</a>
+                </td>
             </tr>
             
         {{/each}}
