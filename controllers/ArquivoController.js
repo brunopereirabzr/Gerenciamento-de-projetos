@@ -3,19 +3,19 @@ import Projeto from "../models/Projeto.js";
 
 class ArquivoController {
 
-    // Listar todos os arquivos
+    
     async index(req, res) {
         const arquivos = await Arquivo.findAll();
         res.render("arquivo/index", {arquivos});
     }
 
-    // Formulário para enviar um arquivo
+    
     async cadastrar(req, res) {
         const projetos = await Projeto.findAll(); 
         res.render("arquivo/cadastrar", { projetos });
     }
 
-    // Salvar um novo arquivo
+    
     async salvar(req, res) {
         try {
             console.log("Recebido no body:", req.body);
@@ -54,7 +54,7 @@ class ArquivoController {
         res.redirect("/arquivos");
     }
 
-    // Excluir um arquivo
+    
     async excluir(req, res) {
         await Arquivo.destroy({ where: { id: req.params.id } });
         res.redirect("/arquivo");
