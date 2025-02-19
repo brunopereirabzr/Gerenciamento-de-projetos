@@ -59,7 +59,11 @@
             <tr>
 
                 <td colspan="5">
-                    <h5>Comentarios</h5>
+                    <h5>Comentarios 
+                        {{#each Comentarios}}
+                            do projeto: <span>{{projetoId}}</span>
+                        {{/each}}
+                    </h5>
                     
                     <ul>
                         {{#each Comentarios}}
