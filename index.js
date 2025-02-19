@@ -4,8 +4,10 @@ import handlebars from 'express-handlebars';
 import bodyParser from 'body-parser';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 
+
 const app = express();
 const porta = 8000;
+app.use(express.json());
 
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -36,6 +38,8 @@ app.get('/', function(req, res){
 import projeto from './routes/projeto.js';
 app.use('/projeto', projeto)
 
+
+
 import comentario from './routes/comentario.js';
 app.use('/comentario', comentario)
 
@@ -43,6 +47,9 @@ import sequelize from "./config/banco.js"; // Importa a configuração do banco
 import "./models/Projeto.js";
 import "./models/Tarefa.js";
 import "./models/Comentario.js";
+
+import arquivo from './routes/arquivo.js';
+app.use('/arquivo', arquivo);
 
 sequelize.sync({ alter: true }).then(() => {
     console.log("Banco de dados sincronizado!");
