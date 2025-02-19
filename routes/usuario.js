@@ -30,7 +30,7 @@ router.post("/registrar", async (req, res) => {
     // Criar usuário
     await Usuario.create({ nome, email, senha: hashSenha });
 
-    res.redirect("/usuario/login");
+    res.redirect("/admin/index");
 });
 // Processar login
 router.post("/logar", async (req, res) => {
