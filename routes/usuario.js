@@ -14,38 +14,23 @@ router.get("/registro", (req, res) => {
     res.render("admin/registro");
 });
 
-// Rota para exibir o formulário de registro
-router.get('/registro', (req, res) => {
-    res.render('admin/registro'); // Crie a view 'registro.handlebars'
-});
+// Processar o registro
+router.post("/registrar", async (req, res) => {
+    const { nome, email, senha } = req.body;
 
-// Rota para processar o registro
-router.post('/registro', async (req, res) => {
-    const { email, senha } = req.body;
-
-    if (!email || !senha) {
-        return res.render('admin/registro', { erro: 'Preencha todos os campos!' });
+    // Verifica se o usuário já existe
+    const usuarioExistente = await Usuario.findOne({ where: { email } });
+    if (usuarioExistente) {
+        return res.send("Erro: E-mail já cadastrado!");
     }
 
-    try {
-        // Verificar se o usuário já existe
-        const usuarioExistente = await Usuario.findOne({ where: { email } });
-        if (usuarioExistente) {
-            return res.render('admin/registro', { erro: 'E-mail já cadastrado!' });
-        }
+    // Criptografar a senha antes de salvar
+    const hashSenha = await bcrypt.hash(senha, 10);
 
-        // Criptografar a senha antes de salvar
-        const salt = await bcrypt.genSalt(10);
-        const senhaHash = await bcrypt.hash(senha, salt);
+    // Criar usuário
+    await Usuario.create({ nome, email, senha: hashSenha });
 
-        // Criar o usuário
-        await Usuario.create({ email, senha: senhaHash });
-
-        res.redirect('admin/login'); // Redireciona para a tela de login
-    } catch (error) {
-        console.error(error);
-        res.render('admin/registro', { erro: 'Erro ao registrar. Tente novamente!' });
-    }
+    res.redirect("/usuario/login");
 });
 // Processar login
 router.post("/logar", async (req, res) => {
